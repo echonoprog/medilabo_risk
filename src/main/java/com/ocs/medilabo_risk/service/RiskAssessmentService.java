@@ -4,21 +4,19 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.ocs.medilabo_risk.bean.NoteBean;
 import com.ocs.medilabo_risk.bean.PatientBean;
-import com.ocs.medilabo_risk.model.RiskLevel;
+
 
 @Service
 public class RiskAssessmentService {
 
-    private static final String PATIENT_API_URL = "http://localhost:8081/patients/";
-    private static final String NOTES_API_URL = "http://localhost:8083/notes/patient/";
+    private static final String PATIENT_API_URL = "http://medilabo-gateway:8080/patients/";
+    private static final String NOTES_API_URL = "http://medilabo-gateway:8080/notes/patient/";
     private static final List<String> TRIGGER_TERMS = Arrays.asList(
             "Hémoglobine A1C", "Microalbumine", "Taille", "Poids", "Fumeur", "Fumeuse",
             "Anormal", "Cholestérol", "Vertiges", "Rechute", "Réaction", "Anticorps"
